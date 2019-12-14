@@ -10,7 +10,7 @@ const daySchema = new mongoose.Schema({
     default: "My goal for today"
   },
   date: {
-    type: Date
+    type: String
   },
   completed: {
     type: Boolean,

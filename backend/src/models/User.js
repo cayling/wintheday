@@ -10,6 +10,26 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true
+  },
+  current: {
+    type: Number,
+    default: 0
+  },
+  best: {
+    type: Number,
+    default: 0
+  },
+  goal: {
+    type: String,
+    default: ""
+  },
+  date: {
+    type: String,
+    default: ""
+  },
+  completed: {
+    type: Boolean,
+    default: false
   }
 });
 

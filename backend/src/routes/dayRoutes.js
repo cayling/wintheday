@@ -16,14 +16,16 @@ router.get("/days", async (req, res) => {
 
 router.post("/days", async (req, res) => {
   const { goal, date } = req.body;
-  console.log(req.body);
+  console.log("start of days post", req.body);
+
   if (!goal || !date) {
-    return res.status(422).send({ error: "dayz error" });
+    return res.status(422).send({ error: "day error" });
   }
 
   try {
     const day = new Day({ goal, date, userId: req.user._id });
     await day.save();
+    console.log("in day", day);
     res.send(day);
   } catch (err) {
     res.status(422).send({ error: err.message });
@@ -31,14 +33,14 @@ router.post("/days", async (req, res) => {
 });
 
 router.put("/day", async (req, res) => {
-  const { goal, completed, goalId } = req.body;
-  console.log(req.body);
-  if (!goal || !completed) {
+  const { completed, _id } = req.body;
+
+  if (!completed || !_id) {
     return res.status(422).send({ error: "dayz error" });
   }
 
   try {
-    const day = await Day.updateOne({ _id: goalId }, { completed, goal });
+    const day = await Day.updateOne({ _id }, { completed });
     res.send(day);
   } catch (err) {
     res.status(422).send({ error: err.message });
