@@ -1,22 +1,20 @@
 require("./models/User");
-require("./models/Day");
+require("dotenv").config({ path: "variables.env" });
 
 const express = require("express");
 
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const authRoutes = require("./routes/authRoutes");
-const trackRoutes = require("./routes/dayRoutes");
+
 const requireAuth = require("./middlewares/requireAuth");
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(authRoutes);
-app.use(trackRoutes);
 
-const mongoUri =
-  "mongodb+srv://admin:Sambooka0@track-f6bg4.mongodb.net/test?retryWrites=true&w=majority";
+const mongoUri = process.env.MONGO_PASS;
 mongoose.connect(mongoUri, {
   useNewUrlParser: true,
   useCreateIndex: true,
