@@ -7,7 +7,7 @@ import { Context as AuthContext } from "../context/AuthContext";
 import { MaterialIcons } from "@expo/vector-icons";
 
 const CongratsScreen = props => {
-  const { state } = useContext(AuthContext);
+  const { state, signout } = useContext(AuthContext);
 
   const { current, best } = state;
   console.log("congrats", current, best);
@@ -16,15 +16,15 @@ const CongratsScreen = props => {
     <>
       <SafeAreaView forceInset={{ top: "always" }} style={styles.container}>
         <View>
-          <Spacer>
-            <Text style={{ fontSize: 48, alignSelf: "center" }}>
-              Congratulations
-            </Text>
-          </Spacer>
+          <Text
+            style={{ fontSize: 41, textAlign: "left", paddingHorizontal: 50 }}
+          >
+            Congratulations
+          </Text>
 
           <Text
             style={{
-              fontSize: 30,
+              fontSize: 28,
               alignSelf: "center",
               paddingHorizontal: 50,
               textAlign: "left"
@@ -41,6 +41,9 @@ const CongratsScreen = props => {
             That's it for today! When you log back in tomorrow you'll be able to
             set a new goal, win the day and increase your streak!
           </Text>
+          <View style={styles.button}>
+            <Button title="Sign Out" onPress={signout} />
+          </View>
         </View>
       </SafeAreaView>
     </>
@@ -50,7 +53,7 @@ const CongratsScreen = props => {
 const styles = StyleSheet.create({
   streak: {
     textAlign: "left",
-    fontSize: 25,
+    fontSize: 22,
     padding: 15,
     paddingHorizontal: 50
   },
@@ -59,6 +62,10 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   sub: {
+    padding: 15,
+    paddingHorizontal: 50
+  },
+  button: {
     padding: 15,
     paddingHorizontal: 50
   }
