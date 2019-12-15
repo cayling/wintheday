@@ -10,28 +10,14 @@ const CongratsScreen = props => {
   const { state, signout } = useContext(AuthContext);
 
   const { current, best } = state;
-  console.log("congrats", current, best);
 
   return (
     <>
       <SafeAreaView forceInset={{ top: "always" }} style={styles.container}>
         <View>
-          <Text
-            style={{ fontSize: 41, textAlign: "left", paddingHorizontal: 50 }}
-          >
-            Congratulations
-          </Text>
+          <Text style={styles.title}>Congratulations</Text>
 
-          <Text
-            style={{
-              fontSize: 28,
-              alignSelf: "center",
-              paddingHorizontal: 50,
-              textAlign: "left"
-            }}
-          >
-            Way to freaking win the day!
-          </Text>
+          <Text style={styles.subtitle}>Way to freaking win the day!</Text>
 
           <Text style={styles.streak}>Current Streak: {current} </Text>
 
@@ -68,6 +54,13 @@ const styles = StyleSheet.create({
   button: {
     padding: 15,
     paddingHorizontal: 50
+  },
+  title: { fontSize: 41, textAlign: "left", paddingHorizontal: 50 },
+  subtitle: {
+    fontSize: 28,
+    alignSelf: "center",
+    paddingHorizontal: 50,
+    textAlign: "left"
   }
 });
 

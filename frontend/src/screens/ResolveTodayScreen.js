@@ -15,11 +15,6 @@ const ResolveTodayScreen = props => {
     .split("T")[0];
 
   useEffect(() => {
-    console.log("state", state);
-    console.log("date", date);
-    console.log("today", today);
-    console.log("yesterday", yesterday);
-
     if (date === today && completed) {
       navigate("Congrats");
     } else if (date === today && !completed) {
