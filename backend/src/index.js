@@ -1,5 +1,4 @@
 require("./models/User");
-require("dotenv").config({ path: "variables.env" });
 
 const express = require("express");
 
@@ -17,6 +16,8 @@ app.use(authRoutes);
 const mongoUri =
   process.env.MONGO +
   "@track-f6bg4.mongodb.net/test?retryWrites=true&w=majority";
+
+console.log("together", mongoUri);
 
 mongoose.connect(mongoUri, {
   useNewUrlParser: true,
