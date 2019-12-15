@@ -14,8 +14,8 @@ const app = express();
 app.use(bodyParser.json());
 app.use(authRoutes);
 
-const mongoUri =
-  "mongodb+srv://admin:Sambooka0@track-f6bg4.mongodb.net/test?retryWrites=true&w=majority";
+const mongoUri = process.env.MONGO;
+
 mongoose.connect(mongoUri, {
   useNewUrlParser: true,
   useCreateIndex: true,
