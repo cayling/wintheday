@@ -17,8 +17,6 @@ const mongoUri =
   process.env.MONGO +
   "@track-f6bg4.mongodb.net/test?retryWrites=true&w=majority";
 
-console.log("together", mongoUri);
-
 mongoose.connect(mongoUri, {
   useNewUrlParser: true,
   useCreateIndex: true,
