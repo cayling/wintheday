@@ -103,13 +103,12 @@ const signout = dispatch => {
 const setGoal = dispatch => {
   return async ({ goal, date, completed }) => {
     try {
-      console.log("setgoal client", goal, date);
       const response = await axiosApi.put("/setGoal", {
         goal,
         date,
         completed
       });
-      console.log(" sg c resp", response.data);
+
       dispatch({ type: "setGoal", payload: response.data });
       navigate("CompleteGoal");
     } catch (err) {
@@ -124,9 +123,8 @@ const setGoal = dispatch => {
 const completeGoal = dispatch => {
   return async ({ completed, _id }) => {
     try {
-      console.log("completeGoal client", completed, _id);
       const response = await axiosApi.put("/completeGoal", { completed, _id });
-      console.log(" compgoal c resp", response.data);
+
       dispatch({ type: "completeGoal", payload: response.data });
       navigate("Congrats");
     } catch (err) {
@@ -141,9 +139,8 @@ const completeGoal = dispatch => {
 const resetStreak = dispatch => {
   return async () => {
     try {
-      console.log("reset client");
       const response = await axiosApi.put("/resetStreak");
-      console.log("reset client response", response.data);
+
       dispatch({ type: "resetStreak" });
       navigate("LostStreak");
     } catch (err) {
