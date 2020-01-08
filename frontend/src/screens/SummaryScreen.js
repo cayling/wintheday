@@ -5,6 +5,11 @@ import { SafeAreaView } from "react-navigation";
 import Spacer from "../components/Spacer";
 import { Context as AuthContext } from "../context/AuthContext";
 import { Feather } from "@expo/vector-icons";
+import {
+  responsiveHeight,
+  responsiveWidth,
+  responsiveFontSize
+} from "react-native-responsive-dimensions";
 
 const SummaryScreen = props => {
   const { state } = useContext(AuthContext);
@@ -12,11 +17,11 @@ const SummaryScreen = props => {
     <>
       <SafeAreaView forceInset={{ top: "always" }} style={styles.container}>
         <View>
-          <Spacer>
-            <Text style={{ fontSize: 48, alignSelf: "center" }}>
+          
+            <Text style={styles.title}>
               Achievements
             </Text>
-          </Spacer>
+          
 
           <Text style={styles.streak}>Current Streak: {state.current} </Text>
 
@@ -30,13 +35,19 @@ const SummaryScreen = props => {
 const styles = StyleSheet.create({
   streak: {
     textAlign: "left",
-    fontSize: 25,
+    fontSize: responsiveFontSize(3),
     padding: 15,
-    paddingHorizontal: 50
+    paddingHorizontal: responsiveFontSize(5)
   },
   container: {
     flexGrow: 1,
     justifyContent: "center"
+  },
+  title: {
+    textAlign: "left",
+    fontSize: responsiveFontSize(6),
+    padding: 15,
+    paddingHorizontal: responsiveFontSize(5)
   }
 });
 

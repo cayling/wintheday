@@ -4,6 +4,11 @@ import { NavigationEvents } from "react-navigation";
 import { Context as AuthContext } from "../context/AuthContext";
 import AuthForm from "../components/AuthForm";
 import NavLink from "../components/NavLink";
+import {
+  responsiveHeight,
+  responsiveWidth,
+  responsiveFontSize
+} from "react-native-responsive-dimensions";
 
 const SigninScreen = ({ navigation }) => {
   const { state, signin, clearErrorMessage } = useContext(AuthContext);
@@ -34,7 +39,6 @@ SigninScreen.navigationOptions = () => {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    marginBottom: 250,
     justifyContent: "center"
   }
 });

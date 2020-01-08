@@ -34,7 +34,6 @@ SignupScreen.navigationOptions = () => {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    marginBottom: 250,
     justifyContent: "center"
   }
 });

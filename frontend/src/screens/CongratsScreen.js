@@ -5,6 +5,11 @@ import { SafeAreaView } from "react-navigation";
 import Spacer from "../components/Spacer";
 import { Context as AuthContext } from "../context/AuthContext";
 import { MaterialIcons } from "@expo/vector-icons";
+import {
+  responsiveHeight,
+  responsiveWidth,
+  responsiveFontSize
+} from "react-native-responsive-dimensions";
 
 const CongratsScreen = props => {
   const { state, signout } = useContext(AuthContext);
@@ -39,9 +44,9 @@ const CongratsScreen = props => {
 const styles = StyleSheet.create({
   streak: {
     textAlign: "left",
-    fontSize: 22,
+    fontSize: responsiveFontSize(3),
     padding: 15,
-    paddingHorizontal: 50
+    paddingHorizontal: responsiveFontSize(5)
   },
   container: {
     flexGrow: 1,
@@ -49,17 +54,22 @@ const styles = StyleSheet.create({
   },
   sub: {
     padding: 15,
-    paddingHorizontal: 50
+    paddingHorizontal: responsiveFontSize(5)
   },
   button: {
     padding: 15,
-    paddingHorizontal: 50
+    paddingHorizontal: responsiveFontSize(5)
   },
-  title: { fontSize: 41, textAlign: "left", paddingHorizontal: 50 },
+  title: { 
+    fontSize: responsiveFontSize(5),
+    textAlign: "left",
+    fontWeight: "600",
+    paddingHorizontal: responsiveFontSize(5)
+  },
   subtitle: {
-    fontSize: 28,
+    fontSize: responsiveFontSize(4),
     alignSelf: "center",
-    paddingHorizontal: 50,
+    paddingHorizontal: responsiveFontSize(5),
     textAlign: "left"
   }
 });
