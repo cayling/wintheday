@@ -5,7 +5,7 @@
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": ["ios", "android", "web"],
-    "version": "0.5.0",
+    "version": "0.6.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -14,7 +14,8 @@
       "backgroundColor": "#ffffff"
     },
     "android": {
-      "package": "me.cayling.wintheday"
+      "package": "me.cayling.wintheday",
+      "versionCode": 2
     },
     "updates": {
       "fallbackToCacheTimeout": 0
